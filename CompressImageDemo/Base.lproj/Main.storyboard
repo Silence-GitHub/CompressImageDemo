@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="432-Rl-M9X">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CompressImageDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVQ-fA-2BQ">
+                                <rect key="frame" x="127" y="72" width="120" height="30"/>
+                                <state key="normal" title="Compress quality"/>
+                                <connections>
+                                    <action selector="compressButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VMt-Q1-Qk5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u80-hl-k9t">
+                                <rect key="frame" x="137" y="110" width="101" height="30"/>
+                                <state key="normal" title="Compress size"/>
+                                <connections>
+                                    <action selector="compressButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cjQ-Te-6FX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPn-ep-xmA">
+                                <rect key="frame" x="97" y="148" width="180" height="30"/>
+                                <state key="normal" title="Compress quality and size"/>
+                                <connections>
+                                    <action selector="compressButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aDc-xg-Qze"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image max size (Byte)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTA-7N-o2n">
+                                <rect key="frame" x="16" y="186" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sUB-ml-XXh">
+                                <rect key="frame" x="0.0" y="224" width="375" height="443"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sUB-ml-XXh" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="0bb-Dp-Y60"/>
+                            <constraint firstItem="oPn-ep-xmA" firstAttribute="centerX" secondItem="eTA-7N-o2n" secondAttribute="centerX" id="D0c-ZY-kFt"/>
+                            <constraint firstItem="sUB-ml-XXh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Fba-qe-zvK"/>
+                            <constraint firstItem="oPn-ep-xmA" firstAttribute="top" secondItem="u80-hl-k9t" secondAttribute="bottom" constant="8" symbolic="YES" id="NWI-GQ-K0P"/>
+                            <constraint firstItem="sUB-ml-XXh" firstAttribute="top" secondItem="eTA-7N-o2n" secondAttribute="bottom" constant="8" symbolic="YES" id="OSO-tp-bm6"/>
+                            <constraint firstItem="u80-hl-k9t" firstAttribute="centerX" secondItem="oPn-ep-xmA" secondAttribute="centerX" id="R4J-hn-xbW"/>
+                            <constraint firstItem="eTA-7N-o2n" firstAttribute="top" secondItem="oPn-ep-xmA" secondAttribute="bottom" constant="8" symbolic="YES" id="XF1-gG-IPs"/>
+                            <constraint firstItem="eTA-7N-o2n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b8W-M3-k1o"/>
+                            <constraint firstAttribute="trailing" secondItem="sUB-ml-XXh" secondAttribute="trailing" id="h2Z-aq-HKn"/>
+                            <constraint firstItem="rVQ-fA-2BQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ihN-Ve-CQV"/>
+                            <constraint firstItem="rVQ-fA-2BQ" firstAttribute="centerX" secondItem="u80-hl-k9t" secondAttribute="centerX" id="jwd-FN-oM8"/>
+                            <constraint firstItem="u80-hl-k9t" firstAttribute="top" secondItem="rVQ-fA-2BQ" secondAttribute="bottom" constant="8" symbolic="YES" id="oD7-Ay-AZ6"/>
+                            <constraint firstItem="eTA-7N-o2n" firstAttribute="centerX" secondItem="sUB-ml-XXh" secondAttribute="centerX" id="ytA-aP-g20"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QIs-X6-gRT"/>
+                    <connections>
+                        <outlet property="imageSizeTextField" destination="eTA-7N-o2n" id="c6f-f4-bqn"/>
+                        <outlet property="imageView" destination="sUB-ml-XXh" id="QGw-jI-L5n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="frU-sg-M6Q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="432-Rl-M9X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3d-0M-J6N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="F2U-ug-b0S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C57-cS-L3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
